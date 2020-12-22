@@ -3,9 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+    <!-- Give a clever title here -->
+    <title>######</title>
 </head>
 <body>
+<!-- Header has a link to the locally stored scores on the top left and the running rimer on the right -->
+<header>
+    <a id="high-scores">View High Scores</a>
+    <div id="time-box">Time remaining: <span id="time-left">60</span></div>
+</header>
+<!-- Main container for quiz -->
+<div class="container">
+    <!-- Header will greet the player and ask the questions -->
+    <h2 id="quiz-header">Welcome to the So-And-So QUIZ!</h2>
+    <!-- a brief run-down of the quiz content and rules, will display user score at end of quiz -->
+    <p id="quiz-info">Give a little bit of desription about the quiz here and explain the rules.</p>
+    <!-- When clicked will begin the quiz -->
+    <button>Start Button goes here</button>
+        <!-- Answers will be displayed in an unordered list -->
+        <div class="answer-box">
+            <ul id="quiz-answers">
+            </ul>
+        </div>
+</div>
     
 </body>
 </html>

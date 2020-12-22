@@ -11,4 +11,9 @@
 #button-start {
     margin: 0 33.333% 0;
     padding:  5px;
+    visibility: visible;
+}
+
+#quiz-info {
+    visibility: visible;
 }

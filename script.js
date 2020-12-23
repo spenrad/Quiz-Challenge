@@ -9,6 +9,7 @@ var input = document.querySelector("input");
 var questionIndex = 0;
 
 // An array of objects should make out question, choices and answers easily accessed
+// user must pronounce volcano names correctly while taking quiz!!!
 var question = [
   {
     questionText: "Which is Icelands largest volcano?",
@@ -125,9 +126,10 @@ function highScoreScreen() {
 
   var highName = localStorage.getItem("Name");
   var highScore = localStorage.getItem("Score");
-
+    // concatenation of locally stored data 
   quizAnswers.style.display = "block";
   quizAnswers.textContent = highName + "- " + highScore;
 }
 
+// eventlistener to start quiz on start button click
 buttonStart.addEventListener("click", quizStart);

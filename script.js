@@ -86,14 +86,36 @@ function handleChoice(event) {
   if (questionIndex >= question.length) {
     clearInterval(timeDown);
     alert("Stop time!");
-    document.body.style.backgroundColor = 'white';
-    container.style.display = "none";
+    endQuiz();
+    // document.body.style.backgroundColor = 'white';
+    // quizAnswers.style.display = "none";
+    // quizInfo.style.display = "block";
+    // quizHeader.innerHTML = "FINISHED";
+    // quizInfo.innerHTML = "Your score is " + score.textContent;
+    
     // without the else statement the next object array does not get called
     } else {
     getAnswers();
   }
 }
 
+function endQuiz() {
+    document.body.style.backgroundColor = 'white';
+    quizAnswers.style.display = "none";
+    quizInfo.style.display = "block";
+    quizHeader.innerHTML = "FINISHED";
+    quizInfo.innerHTML = "Your score is " + score.textContent + "<br>" + "Enter your initials below";
+    
+    var form = document.createElement("form");
+    var input= document.createElement("input");
+    form.appendChild(input);
+    quizInfo.appendChild(form);
+    
+    form.addEventListener("submit" storeData)
+}
 
+function storeData() {
+    
+}
 
 buttonStart.addEventListener("click", quizStart);

@@ -7,6 +7,7 @@
     margin: 10% 20%;
     height: 350px;
     background-color: white;
+    display: "block";
 }
 
 #button-start {

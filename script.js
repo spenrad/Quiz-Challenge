@@ -4,6 +4,7 @@ var buttonStart = document.querySelector("#button-start");
 var quizAnswers = document.querySelector("#quiz-answers");
 var score = document.querySelector("#time-left");
 var highScore = document.querySelector("#high-scores");
+var container = document.querySelector(".container");
 
 var questionIndex = 0;
 
@@ -86,6 +87,7 @@ function handleChoice(event) {
     clearInterval(timeDown);
     alert("Stop time!");
     document.body.style.backgroundColor = 'white';
+    container.style.display = "none";
     // without the else statement the next object array does not get called
     } else {
     getAnswers();

@@ -35,7 +35,7 @@ var time = 60;
 var timeDown;
 
 // This function starts the timer and hides the original elements on the page
-    // also calls the getAnswers function that fetches the answers from the object array
+// also calls the getAnswers function that fetches the answers from the object array
 function quizStart() {
   timeDown = setInterval(function () {
     time--;
@@ -50,7 +50,7 @@ function quizStart() {
 function getAnswers() {
   quizAnswers.innerHTML = "";
   quizHeader.innerHTML = "";
-    // need to increment questionIndex for each question
+  // need to increment questionIndex for each question
   quizHeader.innerHTML = question[questionIndex].questionText;
 
   for (i = 0; i < question[questionIndex].choices.length; i++) {
@@ -58,7 +58,31 @@ function getAnswers() {
 
     var li = document.createElement("li");
     li.textContent = answer;
+    // checks for a click on the li item
+    // calls a function that checks validity and continues quiz
+    li.addEventListener("click", handleChoice);
+
     quizAnswers.appendChild(li);
+  }
+}
+
+// this function handles what a correct choice of li element does
+function handleChoice(event) {
+  event.target.textContent;
+  if (event.target.textContent == question[questionIndex].answer) {
+    alert("Good job");
+  } else {
+    alert("Lose some time");
+    time -= 5;
+  }
+  //   upon selecting an answer, incorrect or not, advance to the next object array
+  questionIndex++;
+  if (questionIndex >= question.length) {
+    alert("stop time!");
+    clearInterval(timeDown);
+    // without the else statement the next object array does not get called
+    } else {
+    getAnswers();
   }
 }
 

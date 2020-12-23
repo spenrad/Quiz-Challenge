@@ -29,6 +29,11 @@ var question = [
     choices: ["b", "g", "y", "t"],
     answer: "t",
   },
+  {
+    questionText: 'Question 5',
+    choices: [5, 4, 1, 2],
+    answer: 5,
+  },
 ];
 
 var time = 60;
@@ -70,20 +75,23 @@ function getAnswers() {
 function handleChoice(event) {
   event.target.textContent;
   if (event.target.textContent == question[questionIndex].answer) {
-    alert("Good job");
+    document.body.style.backgroundColor = 'green';
   } else {
-    alert("Lose some time");
-    time -= 5;
+    document.body.style.backgroundColor = 'red';
+    time -= 7;
   }
   //   upon selecting an answer, incorrect or not, advance to the next object array
   questionIndex++;
   if (questionIndex >= question.length) {
-    alert("stop time!");
     clearInterval(timeDown);
+    alert("Stop time!");
+    document.body.style.backgroundColor = 'white';
     // without the else statement the next object array does not get called
     } else {
     getAnswers();
   }
 }
+
+
 
 buttonStart.addEventListener("click", quizStart);

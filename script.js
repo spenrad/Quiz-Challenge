@@ -5,6 +5,7 @@ var quizAnswers = document.querySelector("#quiz-answers");
 var score = document.querySelector("#time-left");
 var highScore = document.querySelector("#high-scores");
 var container = document.querySelector(".container");
+var input = document.querySelector("input");
 
 var questionIndex = 0;
 
@@ -31,7 +32,7 @@ var question = [
     answer: "t",
   },
   {
-    questionText: 'Question 5',
+    questionText: "Question 5",
     choices: [5, 4, 1, 2],
     answer: 5,
   },
@@ -76,9 +77,9 @@ function getAnswers() {
 function handleChoice(event) {
   event.target.textContent;
   if (event.target.textContent == question[questionIndex].answer) {
-    document.body.style.backgroundColor = 'green';
+    document.body.style.backgroundColor = "green";
   } else {
-    document.body.style.backgroundColor = 'red';
+    document.body.style.backgroundColor = "red";
     time -= 7;
   }
   //   upon selecting an answer, incorrect or not, advance to the next object array
@@ -87,35 +88,40 @@ function handleChoice(event) {
     clearInterval(timeDown);
     alert("Stop time!");
     endQuiz();
-    // document.body.style.backgroundColor = 'white';
-    // quizAnswers.style.display = "none";
-    // quizInfo.style.display = "block";
-    // quizHeader.innerHTML = "FINISHED";
-    // quizInfo.innerHTML = "Your score is " + score.textContent;
-    
     // without the else statement the next object array does not get called
-    } else {
+  } else {
     getAnswers();
   }
 }
 
+// Brings about the 'enter initials screen' for data storage
 function endQuiz() {
-    document.body.style.backgroundColor = 'white';
-    quizAnswers.style.display = "none";
-    quizInfo.style.display = "block";
-    quizHeader.innerHTML = "FINISHED";
-    quizInfo.innerHTML = "Your score is " + score.textContent + "<br>" + "Enter your initials below";
-    
-    var form = document.createElement("form");
-    var input= document.createElement("input");
-    form.appendChild(input);
-    quizInfo.appendChild(form);
-    
-    form.addEventListener("submit" storeData)
+  document.body.style.backgroundColor = "white";
+  quizAnswers.style.display = "none";
+  quizInfo.style.display = "block";
+  quizHeader.innerHTML = "FINISHED";
+  quizInfo.innerHTML =
+    "Your score is " + score.textContent + "<br>" + "Enter your name below";
+
+  var form = document.createElement("form");
+  var input = document.createElement("input");
+  var storeButton = document.createElement("button");
+  storeButton.innerHTML = "Submit";
+  form.appendChild(input);
+  quizInfo.appendChild(form);
+  quizInfo.appendChild(storeButton);
+
+  storeButton.addEventListener("click", function storeData() {
+    localStorage.setItem("Name", input.value);
+    localStorage.setItem("Score", score.textContent);})
+    ;
 }
 
-function storeData() {
-    
-}
+// function highScoreScreen() {
+//     quizHeader.innerHTML = "High Scores";
+//     quizInfo.style.display = "none";
+// };
+
+
 
 buttonStart.addEventListener("click", quizStart);

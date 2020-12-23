@@ -5,43 +5,43 @@ var quizAnswers = document.querySelector("#quiz-answers");
 var score = document.querySelector("#time-left");
 var highScore = document.querySelector("#high-scores");
 
-var answerBlock1 = ["false", "false", "true", "false"]
-var answerBlock2 = ["true", "false", "false", "false"]
-var answerBlock3 = ["false", "false", "false", "true"]
-var answerBlock4 = ["false", "true", "false", "false"]
+var questionIndex = 0;
 
-var time = 60
+// An array of objects should make out question, choices and answers easily accessed
+var question = [
+  {
+    questionText: "How far is the sun",
+    choices: [100, 10000, 1000000, 10000],
+    answer: 1000000,
+  },
+  {
+    questionText: "Is water wet",
+    choices: ["yes", "no", "maybe", "i dont care"],
+    answer: "yes",
+  },
+  {
+    questionText: "Selecct \"a\" ",
+    choices: ["a", "b", "c", "d"],
+    answer: "a",
+  },
+  {
+    questionText: "Select \"t\"",
+    choices: ["b", "g", "y", "t"],
+    answer: "t",
+  },
+];
 
-
+var time = 60;
+var timeDown;
 
 function quizStart() {
-    var timeDown = setInterval(function() {
-        time--;
-        score.textContent = time
-    }, 1000);
-        if (quizInfo.style.visibility == "visible") {
-        quizInfo.style.visibility = "hidden";
-        };
-        if (buttonStart.style.visibility == "visibile") {
-        buttonStart.style.visibility = "hidden";
-        };
+  timeDown = setInterval(function () {
+    time--;
+    score.textContent = time;
+  }, 1000);
+  quizInfo.style.display = "none";
+  buttonStart.style.display = "none";
 }
-//     getAnswers (answerBlock1);
-//     // getAnswers (answerBlock2);
-//     // getAnswers (answerBlock3);
-//     // getAnswers (answerBlock4);
 
 
-// function getAnswers(answerBlock) {
-//     quizAnswers.innerHTML = "";
-//     for (i = 0; i < answerBlock.length; i ++) {
-//         var answer = answerBlock[i];
-
-//         var li = document.createElement("li");
-//         li.textContent = answer;
-//         quizAnswers.appendChild(li);
-//     }
-// }
-
-
-buttonStart.addEventListener("click", quizStart());
+buttonStart.addEventListener("click", quizStart);

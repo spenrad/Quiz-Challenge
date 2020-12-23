@@ -3,7 +3,6 @@
 }
 
 .container {
-    position: relative;
     margin: 10% 20%;
     height: 350px;
     background-color: white;
@@ -18,4 +17,10 @@
 
 #quiz-info {
     display: "block";
+}
+
+li {
+    padding: 10px;
+    margin: 20px 50px 0 0;
+    background-color: #e65252;
 }

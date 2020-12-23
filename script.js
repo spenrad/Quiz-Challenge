@@ -11,29 +11,29 @@ var questionIndex = 0;
 // An array of objects should make out question, choices and answers easily accessed
 var question = [
   {
-    questionText: "How far is the sun",
-    choices: [100, 10000, 1000000, 10000],
-    answer: 1000000,
+    questionText: "Which is Icelands largest volcano?",
+    choices: ["Esjufjöll", "Öræfajökull", "Bárðarbunga", "Trölladyngja"],
+    answer: "Bárðarbunga",
   },
   {
-    questionText: "Is water wet",
-    choices: ["yes", "no", "maybe", "i dont care"],
-    answer: "yes",
+    questionText: "In 2010 this volcano massively disrupted air travel across the European continent.",
+    choices: ["Eyjafjallajökull", "Hverfjall", "Herðubreið", "Theistareykjarbunga"],
+    answer: "Eyjafjallajökull",
   },
   {
-    questionText: 'Selecct "a" ',
-    choices: ["a", "b", "c", "d"],
-    answer: "a",
+    questionText: "How many volcanoes are there in Iceland, active or inactive?",
+    choices: ["18", "30", "65", "130"],
+    answer: "130",
   },
   {
-    questionText: 'Select "t"',
-    choices: ["b", "g", "y", "t"],
-    answer: "t",
+    questionText: "Mount Helka is the most active volcano in Iceland, how many times has it erupted since the year 1104?",
+    choices: ["5", "8", "18", "24"],
+    answer: "18",
   },
   {
-    questionText: "Question 5",
-    choices: [5, 4, 1, 2],
-    answer: 5,
+    questionText: "Volcanoes can cause massive floods by melting glaciers as they erupt. What is the name for these floods?",
+    choices: ["Jökulhlaup", "Flóðhestur", "Gæsalappir", "Gloggaveðu"],
+    answer: "Jökulhlaup",
   },
 ];
 

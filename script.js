@@ -20,12 +20,12 @@ var question = [
     answer: "yes",
   },
   {
-    questionText: "Selecct \"a\" ",
+    questionText: 'Selecct "a" ',
     choices: ["a", "b", "c", "d"],
     answer: "a",
   },
   {
-    questionText: "Select \"t\"",
+    questionText: 'Select "t"',
     choices: ["b", "g", "y", "t"],
     answer: "t",
   },
@@ -34,6 +34,8 @@ var question = [
 var time = 60;
 var timeDown;
 
+// This function starts the timer and hides the original elements on the page
+    // also calls the getAnswers function that fetches the answers from the object array
 function quizStart() {
   timeDown = setInterval(function () {
     time--;
@@ -41,7 +43,23 @@ function quizStart() {
   }, 1000);
   quizInfo.style.display = "none";
   buttonStart.style.display = "none";
+  getAnswers();
 }
 
+// Grabs questions and answers from object array, writing them to their respective elements on page
+function getAnswers() {
+  quizAnswers.innerHTML = "";
+  quizHeader.innerHTML = "";
+    // need to increment questionIndex for each question
+  quizHeader.innerHTML = question[questionIndex].questionText;
+
+  for (i = 0; i < question[questionIndex].choices.length; i++) {
+    var answer = question[questionIndex].choices[i];
+
+    var li = document.createElement("li");
+    li.textContent = answer;
+    quizAnswers.appendChild(li);
+  }
+}
 
 buttonStart.addEventListener("click", quizStart);

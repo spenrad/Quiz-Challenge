@@ -3,7 +3,6 @@ var quizInfo = document.querySelector("#quiz-info");
 var buttonStart = document.querySelector("#button-start");
 var quizAnswers = document.querySelector("#quiz-answers");
 var score = document.querySelector("#time-left");
-var highScore = document.querySelector("#high-scores");
 var container = document.querySelector(".container");
 var input = document.querySelector("input");
 
@@ -111,17 +110,24 @@ function endQuiz() {
   quizInfo.appendChild(form);
   quizInfo.appendChild(storeButton);
 
+//   stores both score and entered name upon button click, calls highScoreScreen function
   storeButton.addEventListener("click", function storeData() {
     localStorage.setItem("Name", input.value);
-    localStorage.setItem("Score", score.textContent);})
-    ;
+    localStorage.setItem("Score", score.textContent);
+    highScoreScreen();
+  });
 }
 
-// function highScoreScreen() {
-//     quizHeader.innerHTML = "High Scores";
-//     quizInfo.style.display = "none";
-// };
+// displays the locally stored info in an ordered list Name- Score
+function highScoreScreen() {
+  quizHeader.innerHTML = "High Score";
+  quizInfo.style.display = "none";
 
+  var highName = localStorage.getItem("Name");
+  var highScore = localStorage.getItem("Score");
 
+  quizAnswers.style.display = "block";
+  quizAnswers.textContent = highName + "- " + highScore;
+}
 
 buttonStart.addEventListener("click", quizStart);
